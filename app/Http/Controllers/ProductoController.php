@@ -48,7 +48,7 @@ class ProductoController extends Controller
         // $producto-> categoria = $request-> categoria;
         // $producto-> folio = $request-> folio;
         // $producto->save();
-        $request->validate($this->rules + ['folio'=> ['required','integer','unique:APP\Models\Producto,folio']]);
+        $request->validate($this->rules + ['folio'=> ['required','integer','unique:productos,folio']]);
         Producto::create($request->all());
 
         return redirect()->route('producto.index');

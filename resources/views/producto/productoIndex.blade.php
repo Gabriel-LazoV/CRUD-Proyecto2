@@ -51,7 +51,7 @@
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-green-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Edit"
                             href="{{ route('producto.edit', $producto) }}"
-                        >
+                        > Edit
                         <svg
                             class="w-5 h-5"
                             aria-hidden="true"
@@ -67,7 +67,7 @@
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-red-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Delete"
                             href="{{ route('producto.destroy', $producto) }}"
-                        >
+                        > Delete
                         <svg
                             class="w-5 h-5"
                             aria-hidden="true"
