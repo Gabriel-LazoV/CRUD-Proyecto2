@@ -4,9 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ProductoController extends Controller
 {
+    private $rules;
+
+    public function __construct()
+    {
+        $this->rules=[
+            'marca'=> 'required|string|min:3|max:255',
+            'categoria'=> 'required|string|min:3|max:255',
+        ];
+    }
     /**
      * Display a listing of the resource.
      */
@@ -38,6 +48,7 @@ class ProductoController extends Controller
         // $producto-> categoria = $request-> categoria;
         // $producto-> folio = $request-> folio;
         // $producto->save();
+        $request->validate($this->rules + ['folio'=> ['required','integer','unique:APP\Models\Producto,folio']]);
         Producto::create($request->all());
 
         return redirect()->route('producto.index');
@@ -69,6 +80,12 @@ class ProductoController extends Controller
         // $producto->categoria = $request->categoria;
         // $producto->folio = $request->folio;
         // $producto->save();
+        $request->validate($this->rules + ['folio'=> [
+            'required',
+            'integer',
+            Rule::unique('productos')->ignore($producto->id)
+            ]]);
+        
         Producto::where('id', $producto->id)->update($request->except('_token','_method'));        
 
         return redirect()->route('producto.show', $producto);

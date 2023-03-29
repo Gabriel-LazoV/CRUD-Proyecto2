@@ -4,6 +4,20 @@
         Formulario de productos
     </h4>
     <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+    @if ($errors->any())
+        <div class="min-w-0 p-4 text-white bg-purple-600 rounded-lg shadow-xs">
+            <h4 class="mb-4 font-semibold">
+                Verifique los campos del formulario
+            </h4>
+            <p>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </p>
+        </div>
+    @endif
         @if(isset($producto))
             <!-- Edicion de programa -->
             <form action="{{ route('producto.update', $producto)}}" method ="POST">
@@ -17,12 +31,15 @@
         <label class="block text-sm">
             <span class="text-gray-700 dark:text-gray-400">Marca del producto:</span>
                 <input
-                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:shadow-outline-purple @error('marca') border-red-600 dark:text-gray-300 dark:bg-gray-700 focus:border-red-400 focus:shadow-outline-red @enderror focus:outline-none dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                     type="text"
                     name="marca"
                     id="marca"
-                    value="{{ $producto->marca ?? ''}}"
+                    value="{{ old('marca') ?? $producto->marca ?? ''}}"
                 />
+                @error('marca')
+                    <span class="text-xs text-red-600 dark:text-red-400"> {{ $message }} </span>
+                @enderror
         </label>
 
         <label class="block text-sm">
@@ -32,8 +49,11 @@
                     type="text"
                     name="categoria"
                     id="categoria"
-                    value="{{ $producto->categoria ?? ''}}"
+                    value="{{ old('categoria') ?? $producto->categoria ?? ''}}"
                 />
+                @error('categoria')
+                    <span class="text-xs text-red-600 dark:text-red-400"> {{ $message }} </span>
+                @enderror
         </label>
 
         <label class="block text-sm">
@@ -43,8 +63,11 @@
                     type="text"
                     name="folio"
                     id="folio"
-                    value="{{ $producto->folio ?? ''}}"
+                    value="{{ old('folio') ?? $producto->folio ?? ''}}"
                 />
+                @error('folio')
+                    <span class="text-xs text-red-600 dark:text-red-400"> {{ $message }} </span>
+                @enderror
         </label>
 
         <div class="mt-4">
