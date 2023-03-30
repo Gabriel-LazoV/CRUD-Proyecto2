@@ -92,7 +92,7 @@
                 </button>
               </li>
               <!-- Notifications menu -->
-              @include('layouts.notificaciones')
+              {{-- @include('layouts.notificaciones') --}}
               
               <!-- Profile menu -->
               @include('layouts.menu-usuario')
