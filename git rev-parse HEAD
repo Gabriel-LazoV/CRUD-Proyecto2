@@ -1,0 +1,71 @@
+[33mcommit e354c5d524dac170de63dd307a43634a9df50b22[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Gabriel Lazo <gabriel.lazo.nc@gmail.com>
+Date:   Wed Mar 29 23:23:58 2023 -0600
+
+    hacer funcionalidad del log out
+
+[33mcommit e194cd38529234fe3ad77112351d1bd275729308[m
+Author: Gabriel Lazo <gabriel.lazo.nc@gmail.com>
+Date:   Wed Mar 29 12:47:48 2023 -0600
+
+    Correccion de validaciones finalez
+
+[33mcommit b77905b8f0244c7b6e496f705514e15ef5cf49d4[m
+Author: Gabriel Lazo <gabriel.lazo.nc@gmail.com>
+Date:   Wed Mar 29 12:15:40 2023 -0600
+
+    Realizar validacion, aun corrigiendo unos errores en la insersion
+
+[33mcommit b3084fe2d276bb11bd0fe16fa12667692293e093[m
+Author: Gabriel Lazo <gabriel.lazo.nc@gmail.com>
+Date:   Wed Mar 29 10:28:43 2023 -0600
+
+    Se termino de realizar la implemenacion del css con el crud
+
+[33mcommit 1cb55245d0075a06fca52a4f2dfeec45bd16dc13[m
+Author: Gabriel Lazo <gabriel.lazo.nc@gmail.com>
+Date:   Wed Mar 29 00:18:41 2023 -0600
+
+    Se acomodaron los apartados de agregar y modificar productos
+
+[33mcommit 5180942fb6234b5ccae0a0989afe39c68bad9998[m
+Author: Gabriel Lazo <gabriel.lazo.nc@gmail.com>
+Date:   Tue Mar 28 21:42:44 2023 -0600
+
+    Extrae secciones de layouts a vistas parciales
+
+[33mcommit 93c861446605292b224e70065541fef0b07c1e63[m
+Author: Gabriel Lazo <gabriel.lazo.nc@gmail.com>
+Date:   Tue Mar 28 00:11:02 2023 -0600
+
+    Agregar CSS y JS de tema Windmill, y implementar tema en pagina de inicio
+
+[33mcommit 6cf7bdab7784cf58bdb99e878ab8f9ab75c3bfbe[m
+Author: Gabriel Lazo <gabriel.lazo.nc@gmail.com>
+Date:   Sun Mar 26 23:56:58 2023 -0600
+
+    Se realizaron los formalarios del CRUD, como su update, delete, create y show
+
+[33mcommit 2f54d2541af846c10b76713c7ff9b51a9b259305[m
+Author: Gabriel Lazo <gabriel.lazo.nc@gmail.com>
+Date:   Sat Mar 25 23:30:14 2023 -0600
+
+    Se creo la ruta, modelo, controlador, y parte de vistas
+
+[33mcommit 2d19bdfb773d7b89ef7703d187a51ab82e25ba32[m
+Author: Gabriel Lazo <gabriel.lazo.nc@gmail.com>
+Date:   Tue Mar 21 22:26:09 2023 -0600
+
+    Agregar paquete de livewire --teams
+
+[33mcommit 07e2d7f5dbed067edc3cfddb4cd0201198901ab9[m
+Author: Gabriel Lazo <gabriel.lazo.nc@gmail.com>
+Date:   Tue Mar 21 22:17:18 2023 -0600
+
+    Agregar paquete laravel/jetstream
+
+[33mcommit 9b3affde3817db050a78e168a4d4cd701cffc46e[m
+Author: Gabriel Lazo <gabriel.lazo.nc@gmail.com>
+Date:   Tue Mar 21 21:48:45 2023 -0600
+
+    Commit inicial almacen-car
