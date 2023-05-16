@@ -17,7 +17,7 @@ class CreateExistenciasTable extends Migration
             $table->id();
             $table->integer('cantidad');
             $table->string('ubicacion');
-            $table->unsignedBigInteger('producto_id');
+            $table->foreignId('producto_id')->constrained();
 
             // $table->foreign('producto_id')->references('id')->on('productos');
         });
