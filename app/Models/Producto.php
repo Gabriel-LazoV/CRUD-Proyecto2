@@ -15,4 +15,9 @@ class Producto extends Model
     {
         return $this->belongsTo(Venta::class);
     }
+
+    public function productosProveedor()
+    {
+        return $this->hasMany(Productos_Proveedor::class,'producto_id');
+    }
 }

@@ -70,6 +70,16 @@
                 @enderror
         </label>
 
+        
+        <select name="proveedor" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input">
+            <option selected disabled>Elegir proveedor</option>
+            @foreach ($proveedor as $nombre => $id)
+            <option value="{{$id}}">
+                {{ $nombre }}
+            </option>
+            @endforeach
+        </select>
+
         <div class="mt-4">
             <button class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
                 type="submit"

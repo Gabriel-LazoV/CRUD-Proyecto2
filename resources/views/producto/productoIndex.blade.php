@@ -26,6 +26,7 @@
                 <th class="px-4 py-3">Marca</th>
                 <th class="px-4 py-3">Categoria</th>
                 <th class="px-4 py-3">Folio</th>
+                <th class="px-4 py-3">Proveedor</th>
                 <th class="px-4 py-3">Acciones</th>
             </tr>
             </thead>

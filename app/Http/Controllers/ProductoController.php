@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Producto;
+use App\Models\Proveedor;
+use App\Models\Productos_Proveedor;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -34,7 +36,13 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('producto.productoForm');
+        // $proveedor= Productos_Proveedor::with(['proveedor' => function ($query) {
+        //     $query->select('nombre');
+        // }])->get()->pluck('proveedor.nombre');
+        $proveedor = Proveedor::select('id','nombre')->orderBy('nombre','asc')->distinct()->pluck('id','nombre'); //metodo para obtener resultados unicos disti
+
+        $product=new Producto();
+        return view('producto.productoForm',compact('proveedor','product'));
     }
 
     /**
@@ -51,8 +59,8 @@ class ProductoController extends Controller
         $request->validate($this->rules + ['folio'=> ['required','integer','unique:productos,folio']]);
         
         //$request->merge(['user_id' => Auth::id()]);
-        Producto::create($request->all());
-
+        $product=Producto::create($request->all());
+        Productos_Proveedor::create(['proveedor_id'=>$request->proveedor, 'producto_id'=>$product->id]);
         return redirect()->route('producto.index');
     }
 
