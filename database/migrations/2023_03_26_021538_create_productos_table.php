@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('marca');
             $table->string('categoria');
-            $table->integer('folio');
+            $table->bigInteger('folio');
             $table->timestamps();
         });
     }

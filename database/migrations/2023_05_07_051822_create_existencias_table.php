@@ -15,7 +15,7 @@ class CreateExistenciasTable extends Migration
     {
         Schema::create('existencias', function (Blueprint $table) {
             $table->id();
-            $table->integer('cantidad');
+            $table->bigInteger('cantidad');
             $table->string('ubicacion');
             $table->foreignId('producto_id')->constrained();
 

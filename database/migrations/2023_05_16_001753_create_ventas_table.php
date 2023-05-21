@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
             $table->float('total_venta');
-            $table->integer('ingreso');
-            $table->integer('cambio');
+            $table->bigInteger('ingreso');
+            $table->bigInteger('cambio');
             $table->timestamps();
         });
     }

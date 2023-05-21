@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('venta__detalles', function (Blueprint $table) {
             $table->id();
-            $table->integer('cantidad');
+            $table->bigInteger('cantidad');
             $table->float('precio_unitario');
             $table->timestamps();
             $table->foreignId('producto_id')->constrained();
