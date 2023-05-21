@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ProveedorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +23,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('welcome', function () {
-    return view('dashboard');
-});
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -34,5 +31,11 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('welcome', function () {
+        return view('dashboard');
+    });
 });
+
 Route::resource('producto', ProductoController::class);
+
+Route::resource('proveedor', ProveedorController::class);

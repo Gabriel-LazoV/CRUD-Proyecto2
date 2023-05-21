@@ -4,15 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ProveedorController extends Controller
 {
+    private $rules;
+
+    public function __construct()
+    {
+        $this->rules=[
+            'nombre'=> 'required|string|min:3|max:255',
+            'marca'=> 'required|string|min:3|max:255',
+            'correo'=> 'required|string|min:3|max:500',
+        ];
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        //consulta a la base de datos
+        $proveedores = Proveedor::get();
+        //paso por vista
+        return view('producto.proveedor.proveedorIndex', compact('proveedores'));
     }
 
     /**
@@ -20,7 +34,7 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        //
+        return view('producto.proveedor.proveedorForm');
     }
 
     /**
@@ -29,6 +43,13 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         //
+        //$request->validate($this->rules + ['folio'=> ['required','integer','unique:productos,folio']]);
+        
+        //$request->merge(['user_id' => Auth::id()]);
+        $request->validate($this->rules + ['telefono'=> ['required','numeric','digits:10','unique:proveedors,telefono']]);
+        Proveedor::create($request->all());
+
+        return redirect()->route('proveedor.index');
     }
 
     /**
@@ -37,6 +58,7 @@ class ProveedorController extends Controller
     public function show(Proveedor $proveedor)
     {
         //
+        return view('producto.proveedor.proveedorShow', compact('proveedor'));
     }
 
     /**
@@ -45,6 +67,7 @@ class ProveedorController extends Controller
     public function edit(Proveedor $proveedor)
     {
         //
+        return view('producto.proveedor.proveedorForm', compact('proveedor'));
     }
 
     /**
@@ -53,6 +76,16 @@ class ProveedorController extends Controller
     public function update(Request $request, Proveedor $proveedor)
     {
         //
+        $request->validate($this->rules + ['telefono'=> [
+            'required',
+            'numeric',
+            'digits:10',
+            Rule::unique('proveedors')->ignore($proveedor->id)
+            ]]);
+        
+        Proveedor::where('id', $proveedor->id)->update($request->except('_token','_method'));        
+
+        return redirect()->route('proveedor.show', $proveedor);
     }
 
     /**
@@ -61,5 +94,7 @@ class ProveedorController extends Controller
     public function destroy(Proveedor $proveedor)
     {
         //
+        $proveedor->delete();
+        return redirect()->route('proveedor.index');
     }
 }

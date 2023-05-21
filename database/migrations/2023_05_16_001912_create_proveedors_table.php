@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('marca');
-            $table->string('telefono');
+            $table->bigInteger('telefono');
             $table->string('correo');
             $table->timestamps();
         });

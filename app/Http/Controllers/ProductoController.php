@@ -49,6 +49,8 @@ class ProductoController extends Controller
         // $producto-> folio = $request-> folio;
         // $producto->save();
         $request->validate($this->rules + ['folio'=> ['required','integer','unique:productos,folio']]);
+        
+        //$request->merge(['user_id' => Auth::id()]);
         Producto::create($request->all());
 
         return redirect()->route('producto.index');
