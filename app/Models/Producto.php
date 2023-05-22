@@ -20,4 +20,10 @@ class Producto extends Model
     {
         return $this->hasMany(Productos_Proveedor::class,'producto_id');
     }
+
+    public function existencia()
+    {
+        return $this->belongsTo(Existencia::class);
+    }
+    
 }

@@ -40,11 +40,11 @@ class JetstreamServiceProvider extends ServiceProvider
         Jetstream::deleteUsersUsing(DeleteUser::class);
 
         Fortify::registerView(function () {
-            return view('auth.windmill-register');
+            return view('auth.register');
         });
 
         Fortify::loginView(function () {
-            return view('auth.windmill-login');
+            return view('auth.login');
         });
     }
 

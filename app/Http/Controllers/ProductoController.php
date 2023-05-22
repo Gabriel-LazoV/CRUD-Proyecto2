@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use App\Models\Proveedor;
+use App\Models\Existencia;
 use App\Models\Productos_Proveedor;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -62,6 +63,7 @@ class ProductoController extends Controller
         //$request->merge(['user_id' => Auth::id()]);
         $product=Producto::create($request->all());
         Productos_Proveedor::create(['proveedor_id'=>$request->proveedor, 'producto_id'=>$product->id]);
+        $product->existencia()->create(['producto_id'=>$product->id,'cantidad'=>$request->cantidad,'ubicacion'=>$request->ubicacion]); 
         return redirect()->route('producto.index');
     }
 
