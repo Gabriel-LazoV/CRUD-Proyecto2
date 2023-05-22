@@ -21,6 +21,7 @@
       class="flex h-screen bg-gray-50 dark:bg-gray-900"
       :class="{ 'overflow-hidden': isSideMenuOpen}"
     >
+    
       <!-- Desktop sidebar -->
       @include('layouts.sidebar-desktop')
 
@@ -95,8 +96,17 @@
               {{-- @include('layouts.notificaciones') --}}
               
               <!-- Profile menu -->
-              @include('layouts.menu-usuario')
-              
+              @auth
+                @include('layouts.menu-usuario')
+              @endauth
+              @guest
+                <a class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                  href="{{ route('login') }}"
+                >
+                  Iniciar Sesion
+                </a>
+              @endguest
+
             </ul>
           </div>
         </header>

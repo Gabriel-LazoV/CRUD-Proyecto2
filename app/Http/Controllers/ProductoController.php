@@ -14,6 +14,7 @@ class ProductoController extends Controller
 
     public function __construct()
     {
+        // $this->middleware('auth');
         $this->rules=[
             'marca'=> 'required|string|min:3|max:255',
             'categoria'=> 'required|string|min:3|max:255',

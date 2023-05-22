@@ -20,7 +20,7 @@ Route::get('inicio', function(){
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio');
 });
 
 Route::middleware([
@@ -36,6 +36,6 @@ Route::middleware([
     });
 });
 
-Route::resource('producto', ProductoController::class);
+Route::resource('producto', ProductoController::class);//->middleware('auth');
 
 Route::resource('proveedor', ProveedorController::class);

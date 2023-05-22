@@ -2,37 +2,33 @@
 
 namespace Database\Factories;
 
-use App\Models\Producto;
 use App\Models\Proveedor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Producto>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Proveedor>
  */
-class ProductoFactory extends Factory
+class ProveedorFactory extends Factory
 {
-
     /**
      * Define the model's default state.
      *
      * @var string
      */
-    protected $model = Producto::class;
+    protected $model = Proveedor::class;
 
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-    
-    
     public function definition(): array
     {
         return [
+            'nombre'=>$this->faker->name(),
             'marca'=>$this->faker->randomElement(['Mobil','Bardahl','LTH','Akron','Quaker']),
-            'categoria'=>$this->faker->randomElement(['Aceite','Filtros','Lubricantes','Anticongelante']),
-            'folio'=>$this->faker->randomNumber(9, true),
-            'proveedor'=> Proveedor::inRandomOrder()->first()
+            'telefono'=>$this->faker->randomNumber(9, true),
+            'correo'=>$this->faker->unique()->safeEmail()
         ];
     }
 }

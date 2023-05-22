@@ -12,6 +12,7 @@ class ProveedorController extends Controller
 
     public function __construct()
     {
+        $this->middleware('auth');
         $this->rules=[
             'nombre'=> 'required|string|min:3|max:255',
             'marca'=> 'required|string|min:3|max:255',
